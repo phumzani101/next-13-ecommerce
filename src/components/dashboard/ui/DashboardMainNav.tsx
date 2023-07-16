@@ -28,14 +28,19 @@ const DashboardMainNav = ({
       active: pathname === `/dashboard/${params.storeId}`,
     },
     {
-      href: `/dashboard/${params.storeId}/settings`,
-      label: "Settings",
-      active: pathname === `/dashboard/${params.storeId}/settings`,
-    },
-    {
       href: `/dashboard/${params.storeId}/billboards`,
       label: "Billboard",
       active: pathname === `/dashboard/${params.storeId}/billboards`,
+    },
+    {
+      href: `/dashboard/${params.storeId}/categories`,
+      label: "Categories",
+      active: pathname === `/dashboard/${params.storeId}/categories`,
+    },
+    {
+      href: `/dashboard/${params.storeId}/settings`,
+      label: "Settings",
+      active: pathname === `/dashboard/${params.storeId}/settings`,
     },
   ];
   return (
