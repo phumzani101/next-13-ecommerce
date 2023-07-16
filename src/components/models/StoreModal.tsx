@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import * as zod from "zod";
 import { Modal } from "@/components/ui/model";
 import { useStoreModal } from "@/hooks/useStoreModal";
@@ -15,10 +15,13 @@ import {
 } from "../ui/form";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const formSchema = zod.object({ name: zod.string().min(1) });
 
 const StoreModal = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const storeModal = useStoreModal();
 
   const form = useForm<zod.infer<typeof formSchema>>({
@@ -30,7 +33,17 @@ const StoreModal = () => {
 
   const onSubmit = async (values: zod.infer<typeof formSchema>) => {
     // Todo
-    console.log(values);
+
+    try {
+      setIsLoading(true);
+      const res = await axios.post("/api/stores", values);
+      toast.success("Store Created");
+      window.location.assign(`/dashboard/${res.data.id}`);
+    } catch (error) {
+      toast.error("Something went wrong.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -51,14 +64,22 @@ const StoreModal = () => {
                   <FormItem>
                     <FormLabel>Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="E-Commerce" {...field} />
+                      <Input
+                        placeholder="E-Commerce"
+                        {...field}
+                        disabled={isLoading}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
               <div className="pt-6 space-x-2 flex items-center justify-end">
-                <Button variant="outline" onClick={storeModal.onClose}>
+                <Button
+                  variant="outline"
+                  onClick={storeModal.onClose}
+                  disabled={isLoading}
+                >
                   Cancel
                 </Button>
                 <Button type="submit">Continue</Button>
