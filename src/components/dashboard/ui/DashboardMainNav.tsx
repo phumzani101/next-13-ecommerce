@@ -43,6 +43,11 @@ const DashboardMainNav = ({
       active: pathname === `/dashboard/${params.storeId}/sizes`,
     },
     {
+      href: `/dashboard/${params.storeId}/colors`,
+      label: "Colors",
+      active: pathname === `/dashboard/${params.storeId}/colors`,
+    },
+    {
       href: `/dashboard/${params.storeId}/settings`,
       label: "Settings",
       active: pathname === `/dashboard/${params.storeId}/settings`,
