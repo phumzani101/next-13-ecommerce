@@ -33,7 +33,6 @@ export default async function DashboardStoreLayout({
   return (
     <>
       <DashboardNavbar />
-      {JSON.stringify(store, null, 2)}
       {children}
     </>
   );
