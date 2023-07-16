@@ -21,13 +21,13 @@ const ApiList: React.FC<ApiListProps> = ({
   return (
     <>
       <ApiAlert
-        title="GET All"
+        title="GET (list)"
         description={`${baseUrl}/${entityName}`}
         variant="public"
       />
 
       <ApiAlert
-        title="GET One"
+        title="GET (read)"
         description={`${baseUrl}/${entityName}/{${entityIdName}}`}
         variant="public"
       />
