@@ -13,9 +13,29 @@ const DashboardMainNav = ({
 
   const routes = [
     {
+      href: `/`,
+      label: "Home",
+      active: pathname === `/`,
+    },
+    // {
+    //   href: `/dashboard`,
+    //   label: "Dashboard",
+    //   active: pathname === `/dashboards`,
+    // },
+    {
+      href: `/dashboard/${params.storeId}`,
+      label: "Overview",
+      active: pathname === `/dashboard/${params.storeId}`,
+    },
+    {
       href: `/dashboard/${params.storeId}/settings`,
       label: "Settings",
       active: pathname === `/dashboard/${params.storeId}/settings`,
+    },
+    {
+      href: `/dashboard/${params.storeId}/billboards`,
+      label: "Billboard",
+      active: pathname === `/dashboard/${params.storeId}/billboards`,
     },
   ];
   return (

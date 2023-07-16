@@ -27,6 +27,7 @@ const ApiAlert: React.FC<ApiAlertProps> = ({ title, description, variant }) => {
     navigator.clipboard.writeText(description);
     toast.success("Copied");
   };
+
   return (
     <Alert>
       <AlertTitle className="flex items-center gap-x-2">
