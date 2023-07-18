@@ -17,7 +17,7 @@ const ApiList: React.FC<ApiListProps> = ({
   const router = useRouter();
   const origin = useOrigin();
 
-  const baseUrl = `${origin}/api/stores/${params.storeId}`;
+  const baseUrl = `${origin}/api`;
   return (
     <>
       <ApiAlert

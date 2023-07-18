@@ -14,57 +14,55 @@ const DashboardMainNav = ({
   const routes = [
     {
       href: `/`,
-      label: "Home",
+      label: "Store",
       active: pathname === `/`,
     },
-    // {
-    //   href: `/dashboard`,
-    //   label: "Dashboard",
-    //   active: pathname === `/dashboards`,
-    // },
     {
-      href: `/dashboard/${params.storeId}`,
-      label: "Overview",
-      active: pathname === `/dashboard/${params.storeId}`,
+      href: `/dashboard`,
+      label: "Dashboard",
+      active: pathname === `/dashboard`,
     },
     {
-      href: `/dashboard/${params.storeId}/billboards`,
+      href: `/dashboard/billboards`,
       label: "Billboard",
-      active: pathname === `/dashboard/${params.storeId}/billboards`,
+      active: pathname === `/dashboard/billboards`,
     },
     {
-      href: `/dashboard/${params.storeId}/categories`,
+      href: `/dashboard/categories`,
       label: "Categories",
-      active: pathname === `/dashboard/${params.storeId}/categories`,
+      active: pathname === `/dashboard/categories`,
     },
     {
-      href: `/dashboard/${params.storeId}/sizes`,
+      href: `/dashboard/sizes`,
       label: "Sizes",
-      active: pathname === `/dashboard/${params.storeId}/sizes`,
+      active: pathname === `/dashboard/sizes`,
     },
     {
-      href: `/dashboard/${params.storeId}/colors`,
+      href: `/dashboard/colors`,
       label: "Colors",
-      active: pathname === `/dashboard/${params.storeId}/colors`,
+      active: pathname === `/dashboard/colors`,
     },
     {
-      href: `/dashboard/${params.storeId}/products`,
+      href: `/dashboard/products`,
       label: "Products",
-      active: pathname === `/dashboard/${params.storeId}/products`,
+      active: pathname === `/dashboard/products`,
     },
     {
-      href: `/dashboard/${params.storeId}/orders`,
+      href: `/dashboard/orders`,
       label: "Orders",
-      active: pathname === `/dashboard/${params.storeId}/orders`,
+      active: pathname === `/dashboard/orders`,
     },
     {
-      href: `/dashboard/${params.storeId}/settings`,
+      href: `/dashboard/settings`,
       label: "Settings",
-      active: pathname === `/dashboard/${params.storeId}/settings`,
+      active: pathname === `/dashboard/settings`,
     },
   ];
   return (
     <nav className={cn("flex items-center space-x-4 lg:space-x-6", className)}>
+      <Link href="/" className="ml-4 flex lg:ml-0 gap-x-2">
+        <span className="font-bold text-xl">Admin</span>
+      </Link>
       {routes.map((route) => (
         <Link
           href={route.href}
