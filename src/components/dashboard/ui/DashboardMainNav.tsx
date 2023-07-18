@@ -53,6 +53,11 @@ const DashboardMainNav = ({
       active: pathname === `/dashboard/${params.storeId}/products`,
     },
     {
+      href: `/dashboard/${params.storeId}/orders`,
+      label: "Orders",
+      active: pathname === `/dashboard/${params.storeId}/orders`,
+    },
+    {
       href: `/dashboard/${params.storeId}/settings`,
       label: "Settings",
       active: pathname === `/dashboard/${params.storeId}/settings`,

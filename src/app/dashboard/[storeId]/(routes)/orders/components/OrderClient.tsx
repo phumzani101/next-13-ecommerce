@@ -5,14 +5,14 @@ import { Separator } from "@/components/ui/separator";
 import { Plus } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import React from "react";
-import { BillboardColumn, columns } from "./BillboardColumns";
+import { OrderColumn, columns } from "./OrderColumns";
 import { DataTable } from "@/components/myui/DataTable";
 import ApiList from "@/components/myui/ApiList";
 
-interface BillBoardClientProps {
-  billboards: BillboardColumn[];
+interface OrderClientProps {
+  orders: OrderColumn[];
 }
-const BillBoardClient: React.FC<BillBoardClientProps> = ({ billboards }) => {
+const OrderClient: React.FC<OrderClientProps> = ({ orders }) => {
   const router = useRouter();
   const params = useParams();
 
@@ -20,25 +20,23 @@ const BillBoardClient: React.FC<BillBoardClientProps> = ({ billboards }) => {
     <>
       <div className="flex items-center justify-between">
         <Heading
-          title={`Billboards (${billboards.length})`}
-          description="Manage Billboards for your store"
+          title={`Orders (${orders.length})`}
+          description="Manage Orders for your store"
         />
-        <Button
-          onClick={() =>
-            router.push(`/dashboard/${params.storeId}/billboards/new`)
-          }
+        {/* <Button
+          onClick={() => router.push(`/dashboard/${params.storeId}/orders/new`)}
         >
           <Plus className="mr-2 h-4 w-4" />
           Add New
-        </Button>
+        </Button> */}
       </div>
       <Separator />
-      <DataTable searchKey="label" columns={columns} data={billboards} />
-      <Heading title="API" description="API call for billboards" />
+      <DataTable searchKey="products" columns={columns} data={orders} />
+      <Heading title="API" description="API call for orders" />
       <Separator />
-      <ApiList entityName="billboards" entityIdName="billboardId" />
+      <ApiList entityName="orders" entityIdName="orderId" />
     </>
   );
 };
 
-export default BillBoardClient;
+export default OrderClient;
